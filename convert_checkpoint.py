@@ -5,8 +5,6 @@ DEVICE = "cuda"
 
 checkpoint = torch.load("my_checkpoint.pth.tar", map_location=DEVICE)
 
-
-
 print("=> Checkpoint keys:", checkpoint.keys())
 
 model = ResNet(num_classes=10).to(DEVICE)
