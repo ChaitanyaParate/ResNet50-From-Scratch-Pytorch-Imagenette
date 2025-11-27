@@ -51,10 +51,16 @@ def train_fn(loader, model, optimizer, loss_fn, scaler,scheduler):
 
 
         loop.set_postfix(loss=loss.item())
+<<<<<<< HEAD
     
 
     avg_loss = Total_loss / len(loader)
     scheduler.step(avg_loss)
+=======
+    scheduler.step()
+
+    avg_loss = Total_loss / len(loader)
+>>>>>>> a068dfbb5a14230540681b7fe9b4b8dbe2ae5190
     return avg_loss
 
 
@@ -90,7 +96,11 @@ def main():
         Val_DATASET_DIR, val_transform, BATCH_SIZE, NUM_WORKERS, PIN_MEMORY
     )
 
+<<<<<<< HEAD
     scaler = torch.amp.GradScaler()
+=======
+    scaler = torch.amp.GradScaler('cuda')
+>>>>>>> a068dfbb5a14230540681b7fe9b4b8dbe2ae5190
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=1)
 
     #load_checkpoint("my_checkpoint.pth.tar", model, optimizer)
